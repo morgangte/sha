@@ -25,3 +25,4 @@ clean:
 
 distclean: clean
 	rm -rf $(EXEC)
+	rm -rf $(HEADER_ONLY_DIR)

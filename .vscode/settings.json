@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "sha256.h": "c",
-        "sha2.h": "c"
-    }
-}
