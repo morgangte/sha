@@ -20,11 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// This implementation directly follows the standard described in 
-// the FIPS PUB 180-4:
-//
-// https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
-
 #include "sha256.h"
 
 #include <stdint.h>
@@ -136,7 +131,7 @@
 // 5.1   Padding the Message
 // 5.1.1 SHA-1, SHA-224 and SHA-256
 
-size_t _build_non_last_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index) 
+static size_t _build_non_last_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index) 
 {
     size_t length = MIN(message_length - start_index, 64);
     memcpy(bytes, message + start_index, length);
@@ -148,7 +143,7 @@ size_t _build_non_last_block(uint8_t bytes[64], const char *message, size_t mess
     return length;
 }
 
-size_t _build_last_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index) 
+static size_t _build_last_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index) 
 {
     if (start_index < message_length || message_length % 64 == 0) {
         size_t length = MIN(message_length - start_index, 64);
@@ -164,7 +159,7 @@ size_t _build_last_block(uint8_t bytes[64], const char *message, size_t message_
     return 0;
 }
 
-size_t _build_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index)
+static size_t _build_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index)
 {
     if (start_index >= message_length || message_length - start_index <= 55) {
         return _build_last_block(bytes, message, message_length, start_index);
@@ -187,7 +182,7 @@ size_t _build_block(uint8_t bytes[64], const char *message, size_t message_lengt
 // 6.    SECURE HASH ALGORITHMS
 // 6.2   SHA-256
 
-void _block_bytes_to_words(uint8_t block_bytes[64], uint32_t block_words[16])
+static void _block_bytes_to_words(uint8_t block_bytes[64], uint32_t block_words[16])
 {
     for (int i = 0; i < 16; i++) {
         block_words[i] = ((uint32_t)block_bytes[i * 4    ] << 24) |
@@ -197,7 +192,7 @@ void _block_bytes_to_words(uint8_t block_bytes[64], uint32_t block_words[16])
     }
 }
 
-void _compute_hash(const char *message, size_t message_length, uint32_t digest[8])
+static void _compute_hash(const char *message, size_t message_length, uint32_t digest[8])
 {
     uint32_t H_i[8] = {
         H_0_0, H_1_0, H_2_0, H_3_0, H_4_0, H_5_0, H_6_0, H_7_0
