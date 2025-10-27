@@ -41,6 +41,9 @@ jobs:
         with:
           name: build-artifact
           path: .
+      
+      - name: List downloaded artifact
+        run: ls -l
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y build-essential
