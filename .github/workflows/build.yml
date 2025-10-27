@@ -50,7 +50,8 @@ jobs:
 
       - name: Run tests
         run: chmod a+x test && ./test
- docs:
+
+  docs:
     name: Generate and Deploy Docs
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
