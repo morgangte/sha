@@ -1,9 +1,0 @@
-# Develoment
-.vscode
-
-# Binaries
-*.o
-test
-
-# Docs
-docs/html
