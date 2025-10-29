@@ -1,5 +1,7 @@
 SRC_DIR=src
 INC_DIR=include
+OUT_DIR=out
+OBJ_DIR=object
 DOC_DIR=docs
 
 CC=gcc
@@ -8,21 +10,24 @@ CFLAGS=-Wall -Wextra
 
 EXEC=test
 
-.PHONY: all docs clean distclean
+.PHONY: all run docs clean distclean
 
-all: $(EXEC)
+all: $(OUT_DIR)/$(EXEC)
+
+run: $(OUT_DIR)/$(EXEC)
+	./$(OUT_DIR)/$(EXEC)
 
 # ************************ Executable ************************
 
-$(EXEC): $(SRC_DIR)/test.o $(SRC_DIR)/sha256.o
+$(OUT_DIR)/$(EXEC): $(OUT_DIR)/$(OBJ_DIR)/test.o $(OUT_DIR)/$(OBJ_DIR)/sha256.o
 	$(CC) $^ -o $@
 
 # *********************** Object files ***********************
 
-$(SRC_DIR)/sha256.o: $(SRC_DIR)/sha256.c $(INC_DIR)/sha256.h
-$(SRC_DIR)/test.o: $(SRC_DIR)/test.c $(INC_DIR)/sha256.h
+$(OUT_DIR)/$(OBJ_DIR)/sha256.o: $(SRC_DIR)/sha256.c $(INC_DIR)/sha256.h
+$(OUT_DIR)/$(OBJ_DIR)/test.o: $(SRC_DIR)/test.c $(INC_DIR)/sha256.h
 
-$(SRC_DIR)/%.o: 
+$(OUT_DIR)/%.o:
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 # *************************** Docs ***************************
@@ -33,9 +38,8 @@ docs:
 # ************************* Cleaning *************************
 
 clean:
-	rm -rf $(SRC_DIR)/*.o
+	rm -rf $(OUT_DIR)/$(OBJ_DIR)/*.o
 
 distclean: clean
-	rm -rf $(EXEC)
-	rm -rf $(HEADER_ONLY_DIR)
+	rm -rf $(OUT_DIR)/$(EXEC)
 	rm -rf $(DOC_DIR)/html

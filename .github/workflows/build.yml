@@ -52,7 +52,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y build-essential
 
       - name: Run tests
-        run: chmod a+x test && ./test
+        run: chmod a+x test && make run
 
   generate-docs:
     name: Generate docs
