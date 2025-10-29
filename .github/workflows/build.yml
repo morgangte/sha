@@ -81,17 +81,17 @@ jobs:
     needs: generate-docs
 
     steps:
-      - name: Checkout repository
+      - name: Checkout main branch
         uses: actions/checkout@v4
 
       - name: Download docs
         uses: actions/download-artifact@v4
         with:
           name: docs-artifact
-          path: .
+          path: ./docs/html
       
       - name: List downloaded artifact
-        run: ls -l
+        run: ls -l ./docs/html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -99,5 +99,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/html
           publish_branch: gh-pages
+          destination_dir: .
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
