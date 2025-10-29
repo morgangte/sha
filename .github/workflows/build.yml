@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: ./test
+          path: ./out/run_tests
 
   test:
     name: Tests
@@ -43,16 +43,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifact
-          path: .
+          path: ./out
       
       - name: List downloaded artifact
-        run: ls -l
+        run: ls -alh out
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y build-essential
 
       - name: Run tests
-        run: chmod a+x test && ./test
+        run: chmod a+x ./out/run_tests && make run
 
   generate-docs:
     name: Generate docs
