@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Secure Hash Algorithms: include/sha256.h File Reference</title>
+<title>Secure Hash Algorithms: include/sha1.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,71 +77,71 @@ $(function() {
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">sha256.h File Reference</div></div>
+  <div class="headertitle"><div class="title">sha1.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>SHA-256 implementation header file.  
+<p>SHA-1 implementation header file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
 </div>
-<p><a href="sha256_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="sha1_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6cb261b438196274f4cf908e17f2d15f" id="r_a6cb261b438196274f4cf908e17f2d15f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8h.html#a6cb261b438196274f4cf908e17f2d15f">SHA256_STRING_DIGEST_LENGTH</a>&#160;&#160;&#160;72</td></tr>
-<tr class="memdesc:a6cb261b438196274f4cf908e17f2d15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of the digest string output by <a class="el" href="sha256_8h.html#ad98057f087303ad02df3324079cd7564" title="Transforms a SHA-256 digest into a readable string.">sha256_digest_to_string()</a>  <br /></td></tr>
-<tr class="separator:a6cb261b438196274f4cf908e17f2d15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb45a8a8b5df9c2184d1c269c62f070b" id="r_adb45a8a8b5df9c2184d1c269c62f070b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha1_8h.html#adb45a8a8b5df9c2184d1c269c62f070b">SHA1_STRING_DIGEST_LENGTH</a>&#160;&#160;&#160;45</td></tr>
+<tr class="memdesc:adb45a8a8b5df9c2184d1c269c62f070b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of the digest string output by <a class="el" href="sha1_8h.html#a5d28830e1f3a1ad78d48865d28126d00" title="Transforms a SHA-1 digest into a readable string.">sha1_digest_to_string()</a>  <br /></td></tr>
+<tr class="separator:adb45a8a8b5df9c2184d1c269c62f070b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7024b07c3f5927d85c620b97432cece5" id="r_a7024b07c3f5927d85c620b97432cece5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8h.html#a7024b07c3f5927d85c620b97432cece5">sha256_hash_string</a> (const char *message, size_t message_length, uint32_t digest_destination[8])</td></tr>
-<tr class="memdesc:a7024b07c3f5927d85c620b97432cece5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the SHA-256 hash of a string.  <br /></td></tr>
-<tr class="separator:a7024b07c3f5927d85c620b97432cece5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad98057f087303ad02df3324079cd7564" id="r_ad98057f087303ad02df3324079cd7564"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8h.html#ad98057f087303ad02df3324079cd7564">sha256_digest_to_string</a> (uint32_t digest[8], char string_digest_destination[<a class="el" href="sha256_8h.html#a6cb261b438196274f4cf908e17f2d15f">SHA256_STRING_DIGEST_LENGTH</a>])</td></tr>
-<tr class="memdesc:ad98057f087303ad02df3324079cd7564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a SHA-256 digest into a readable string.  <br /></td></tr>
-<tr class="separator:ad98057f087303ad02df3324079cd7564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43462609da04c47af6e54465f1418f2b" id="r_a43462609da04c47af6e54465f1418f2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha1_8h.html#a43462609da04c47af6e54465f1418f2b">sha1_hash_string</a> (const char *message, size_t message_length, uint32_t digest_destination[5])</td></tr>
+<tr class="memdesc:a43462609da04c47af6e54465f1418f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the SHA-1 hash of a string.  <br /></td></tr>
+<tr class="separator:a43462609da04c47af6e54465f1418f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d28830e1f3a1ad78d48865d28126d00" id="r_a5d28830e1f3a1ad78d48865d28126d00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha1_8h.html#a5d28830e1f3a1ad78d48865d28126d00">sha1_digest_to_string</a> (uint32_t digest[5], char string_digest_destination[<a class="el" href="sha1_8h.html#adb45a8a8b5df9c2184d1c269c62f070b">SHA1_STRING_DIGEST_LENGTH</a>])</td></tr>
+<tr class="memdesc:a5d28830e1f3a1ad78d48865d28126d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a SHA-1 digest into a readable string.  <br /></td></tr>
+<tr class="separator:a5d28830e1f3a1ad78d48865d28126d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SHA-256 implementation header file. </p>
+<div class="textblock"><p>SHA-1 implementation header file. </p>
 <p>This implementation directly follows the standard described in the FIPS PUB 180-4:</p>
 <p><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a> </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a6cb261b438196274f4cf908e17f2d15f" name="a6cb261b438196274f4cf908e17f2d15f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cb261b438196274f4cf908e17f2d15f">&#9670;&#160;</a></span>SHA256_STRING_DIGEST_LENGTH</h2>
+<a id="adb45a8a8b5df9c2184d1c269c62f070b" name="adb45a8a8b5df9c2184d1c269c62f070b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb45a8a8b5df9c2184d1c269c62f070b">&#9670;&#160;</a></span>SHA1_STRING_DIGEST_LENGTH</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SHA256_STRING_DIGEST_LENGTH&#160;&#160;&#160;72</td>
+          <td class="memname">#define SHA1_STRING_DIGEST_LENGTH&#160;&#160;&#160;45</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The length of the digest string output by <a class="el" href="sha256_8h.html#ad98057f087303ad02df3324079cd7564" title="Transforms a SHA-256 digest into a readable string.">sha256_digest_to_string()</a> </p>
+<p>The length of the digest string output by <a class="el" href="sha1_8h.html#a5d28830e1f3a1ad78d48865d28126d00" title="Transforms a SHA-1 digest into a readable string.">sha1_digest_to_string()</a> </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ad98057f087303ad02df3324079cd7564" name="ad98057f087303ad02df3324079cd7564"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad98057f087303ad02df3324079cd7564">&#9670;&#160;</a></span>sha256_digest_to_string()</h2>
+<a id="a5d28830e1f3a1ad78d48865d28126d00" name="a5d28830e1f3a1ad78d48865d28126d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d28830e1f3a1ad78d48865d28126d00">&#9670;&#160;</a></span>sha1_digest_to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sha256_digest_to_string </td>
+          <td class="memname">void sha1_digest_to_string </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>digest</em>[8], </td>
+          <td class="paramname"><em>digest</em>[5], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>string_digest_destination</em>[SHA256_STRING_DIGEST_LENGTH]&#160;</td>
+          <td class="paramname"><em>string_digest_destination</em>[SHA1_STRING_DIGEST_LENGTH]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -151,10 +151,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Transforms a SHA-256 digest into a readable string. </p>
+<p>Transforms a SHA-1 digest into a readable string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">digest</td><td>The SHA-256 digest </td></tr>
+    <tr><td class="paramname">digest</td><td>The SHA-1 digest </td></tr>
     <tr><td class="paramname">string_digest_destination</td><td>The resulting string digest </td></tr>
   </table>
   </dd>
@@ -162,14 +162,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7024b07c3f5927d85c620b97432cece5" name="a7024b07c3f5927d85c620b97432cece5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7024b07c3f5927d85c620b97432cece5">&#9670;&#160;</a></span>sha256_hash_string()</h2>
+<a id="a43462609da04c47af6e54465f1418f2b" name="a43462609da04c47af6e54465f1418f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43462609da04c47af6e54465f1418f2b">&#9670;&#160;</a></span>sha1_hash_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sha256_hash_string </td>
+          <td class="memname">void sha1_hash_string </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>message</em>, </td>
@@ -184,7 +184,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>digest_destination</em>[8]&#160;</td>
+          <td class="paramname"><em>digest_destination</em>[5]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -194,7 +194,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the SHA-256 hash of a string. </p>
+<p>Computes the SHA-1 hash of a string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>The string message to hash </td></tr>

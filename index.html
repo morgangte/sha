@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SHA-256: SHA-256 C Library</title>
+<title>Secure Hash Algorithms: Secure Hash Algorithms</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">SHA-256
+   <div id="projectname">Secure Hash Algorithms
    </div>
-   <div id="projectbrief">SHA-256 (Secure Hash Algorithm) implementation in C</div>
+   <div id="projectbrief">Secure Hash Algorithms implementation in C</div>
   </td>
  </tr>
  </tbody>
@@ -70,19 +70,41 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">SHA-256 C Library </div></div>
+  <div class="headertitle"><div class="title">Secure Hash Algorithms </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_docs_2MAINPAGE"></a> This is a C implementation of the SHA-256 algorithm.</p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> This is a C implementation of the following Secure Hash Algorithms:</p><ul>
+<li>SHA-1</li>
+<li>SHA-256</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md1"></a>
-Secure Hash Algorithm</h2>
+Secure Hash Algorithms</h2>
 <p>The Secure Hash Algorithms are a family of cryptographic hash functions published by the National Institute of Standards and Technology (NIST) as a U.S. Federal Information Processing Standard (FIPS).</p>
-<p>SHA-256, first published in 2001, has a 128-bit security.</p>
 <p>This implementation directly follows the standard available at <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a>.</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
-Download</h2>
-<p>The library is freely available at <a href="https://github.com/morgangte/sha-256">https://github.com/morgangte/sha-256</a>.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+Quick start</h2>
+<p>Once in the project folder, compile and run tests with:</p>
+<div class="fragment"><div class="line">$ make</div>
+<div class="line">$ make run</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+Dependencies</h2>
+<div class="fragment"><div class="line">$ apt install build-essential</div>
+</div><!-- fragment --><p>And if you wish to generate the documentation:</p>
+<div class="fragment"><div class="line">$ apt install doxygen</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Documentation</h2>
+<p>Documentation is available online at <a href="https://morgangte.github.io/sha-256/">https://morgangte.github.io/sha-256/</a>.</p>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Locally</h3>
+<p>Please first check dependencies. Then, generate the documentation with:</p>
+<div class="fragment"><div class="line">$ make docs</div>
+</div><!-- fragment --><p>Access it via any browser, e.g. with Firefox:</p>
+<div class="fragment"><div class="line">$ firefox docs/html/index.html</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+License</h2>
+<p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
+<p>Source code is available at <a href="https://github.com/morgangte/sha-256">https://github.com/morgangte/sha-256</a>.</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Author</h2>
 <p>Morgan Gillette </p>
 </div></div><!-- PageDoc -->

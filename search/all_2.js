@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['c_20library_0',['SHA-256 C Library',['../index.html',1,'']]]
+  ['hash_20algorithms_0',['hash algorithms',['../index.html',1,'Secure Hash Algorithms'],['../index.html#autotoc_md1',1,'Secure Hash Algorithms']]]
 ];

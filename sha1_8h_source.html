@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Secure Hash Algorithms: include/sha256.h Source File</title>
+<title>Secure Hash Algorithms: include/sha1.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,10 +79,10 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">sha256.h</div></div>
+  <div class="headertitle"><div class="title">sha1.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="sha256_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// MIT License</span></div>
+<a href="sha1_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// MIT License</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// </span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright (c) 2025 Morgan Gillette</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// </span></div>
@@ -104,22 +104,22 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// SOFTWARE.</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#ifndef SHA256_H</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define SHA256_H</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#ifndef SHA1_H</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define SHA1_H</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="sha256_8h.html#a7024b07c3f5927d85c620b97432cece5">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sha256_8h.html#a7024b07c3f5927d85c620b97432cece5">sha256_hash_string</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *message, <span class="keywordtype">size_t</span> message_length, uint32_t digest_destination[8]);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="sha1_8h.html#a43462609da04c47af6e54465f1418f2b">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sha1_8h.html#a43462609da04c47af6e54465f1418f2b">sha1_hash_string</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *message, <span class="keywordtype">size_t</span> message_length, uint32_t digest_destination[5]);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="sha256_8h.html#a6cb261b438196274f4cf908e17f2d15f">   51</a></span><span class="preprocessor">#define SHA256_STRING_DIGEST_LENGTH 72</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="sha1_8h.html#adb45a8a8b5df9c2184d1c269c62f070b">   51</a></span><span class="preprocessor">#define SHA1_STRING_DIGEST_LENGTH 45</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="sha256_8h.html#ad98057f087303ad02df3324079cd7564">   59</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sha256_8h.html#ad98057f087303ad02df3324079cd7564">sha256_digest_to_string</a>(uint32_t digest[8], <span class="keywordtype">char</span> string_digest_destination[<a class="code hl_define" href="sha256_8h.html#a6cb261b438196274f4cf908e17f2d15f">SHA256_STRING_DIGEST_LENGTH</a>]);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="sha1_8h.html#a5d28830e1f3a1ad78d48865d28126d00">   59</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sha1_8h.html#a5d28830e1f3a1ad78d48865d28126d00">sha1_digest_to_string</a>(uint32_t digest[5], <span class="keywordtype">char</span> string_digest_destination[<a class="code hl_define" href="sha1_8h.html#adb45a8a8b5df9c2184d1c269c62f070b">SHA1_STRING_DIGEST_LENGTH</a>]);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif </span><span class="comment">// SHA256_H</span></div>
-<div class="ttc" id="asha256_8h_html_a6cb261b438196274f4cf908e17f2d15f"><div class="ttname"><a href="sha256_8h.html#a6cb261b438196274f4cf908e17f2d15f">SHA256_STRING_DIGEST_LENGTH</a></div><div class="ttdeci">#define SHA256_STRING_DIGEST_LENGTH</div><div class="ttdoc">The length of the digest string output by sha256_digest_to_string()</div><div class="ttdef"><b>Definition</b> sha256.h:51</div></div>
-<div class="ttc" id="asha256_8h_html_a7024b07c3f5927d85c620b97432cece5"><div class="ttname"><a href="sha256_8h.html#a7024b07c3f5927d85c620b97432cece5">sha256_hash_string</a></div><div class="ttdeci">void sha256_hash_string(const char *message, size_t message_length, uint32_t digest_destination[8])</div><div class="ttdoc">Computes the SHA-256 hash of a string.</div></div>
-<div class="ttc" id="asha256_8h_html_ad98057f087303ad02df3324079cd7564"><div class="ttname"><a href="sha256_8h.html#ad98057f087303ad02df3324079cd7564">sha256_digest_to_string</a></div><div class="ttdeci">void sha256_digest_to_string(uint32_t digest[8], char string_digest_destination[SHA256_STRING_DIGEST_LENGTH])</div><div class="ttdoc">Transforms a SHA-256 digest into a readable string.</div></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif </span><span class="comment">// SHA1_H</span></div>
+<div class="ttc" id="asha1_8h_html_a43462609da04c47af6e54465f1418f2b"><div class="ttname"><a href="sha1_8h.html#a43462609da04c47af6e54465f1418f2b">sha1_hash_string</a></div><div class="ttdeci">void sha1_hash_string(const char *message, size_t message_length, uint32_t digest_destination[5])</div><div class="ttdoc">Computes the SHA-1 hash of a string.</div></div>
+<div class="ttc" id="asha1_8h_html_a5d28830e1f3a1ad78d48865d28126d00"><div class="ttname"><a href="sha1_8h.html#a5d28830e1f3a1ad78d48865d28126d00">sha1_digest_to_string</a></div><div class="ttdeci">void sha1_digest_to_string(uint32_t digest[5], char string_digest_destination[SHA1_STRING_DIGEST_LENGTH])</div><div class="ttdoc">Transforms a SHA-1 digest into a readable string.</div></div>
+<div class="ttc" id="asha1_8h_html_adb45a8a8b5df9c2184d1c269c62f070b"><div class="ttname"><a href="sha1_8h.html#adb45a8a8b5df9c2184d1c269c62f070b">SHA1_STRING_DIGEST_LENGTH</a></div><div class="ttdeci">#define SHA1_STRING_DIGEST_LENGTH</div><div class="ttdoc">The length of the digest string output by sha1_digest_to_string()</div><div class="ttdef"><b>Definition</b> sha1.h:51</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['download_0',['Download',['../index.html#autotoc_md2',1,'']]]
+  ['license_0',['License',['../index.html#autotoc_md6',1,'']]],
+  ['locally_1',['Locally',['../index.html#autotoc_md5',1,'']]]
 ];

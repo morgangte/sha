@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hash_20algorithm_0',['Secure Hash Algorithm',['../index.html#autotoc_md1',1,'']]]
+  ['quick_20start_0',['Quick start',['../index.html#autotoc_md2',1,'']]]
 ];
