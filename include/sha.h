@@ -1,6 +1,3 @@
-#ifndef SHA_H
-#define SHA_H
-
 // MIT License
 // 
 // Copyright (c) 2025 Morgan Gillette
@@ -33,6 +30,9 @@
  * 
  * https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
  */
+
+#ifndef SHA_H
+#define SHA_H
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -138,4 +138,4 @@ void _block_bytes_to_uint32_words(uint8_t block_bytes[64], uint32_t block_words[
  */
 size_t _sha1_sha224_sha256_build_block(uint8_t bytes[64], const char *message, size_t message_length, size_t start_index);
 
-#endif
+#endif // SHA_H

@@ -56,4 +56,4 @@ clean:
 
 distclean: clean
 	rm -rf $(OUT_DIR)/$(EXEC)
-	rm -rf $(DOC_DIR)/html
+	rm -rf $(DOC_DIR)

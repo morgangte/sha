@@ -1,11 +1,12 @@
-PROJECT_NAME           = "SHA-256"
-PROJECT_BRIEF          = "SHA-256 (Secure Hash Algorithm) implementation in C"
+PROJECT_NAME           = "Secure Hash Algorithms"
+PROJECT_BRIEF          = "Secure Hash Algorithms implementation in C"
 OUTPUT_DIRECTORY       = "docs"
-USE_MDFILE_AS_MAINPAGE = docs/MAINPAGE.md
+USE_MDFILE_AS_MAINPAGE = README.md
 
-INPUT                  = include/sha256.h docs/MAINPAGE.md
+INPUT                  = ./README.md include/sha1.h include/sha256.h
 FILE_PATTERNS          = *.c *.h
 RECURSIVE              = NO
+INTERNAL_DOCS          = NO
 
 EXTRACT_ALL            = YES
 EXTRACT_STATIC         = NO
