@@ -37,6 +37,16 @@
 
 #define MIN(x, y) ((x) < (y) ? (x) : (y))
 
+void _block_bytes_to_uint32_words(uint8_t block_bytes[64], uint32_t block_words[16])
+{
+    for (int i = 0; i < 16; i++) {
+        block_words[i] = ((uint32_t)block_bytes[i * 4    ] << 24) |
+                         ((uint32_t)block_bytes[i * 4 + 1] << 16) |
+                         ((uint32_t)block_bytes[i * 4 + 2] <<  8) |
+                         ((uint32_t)block_bytes[i * 4 + 3] <<  0);
+    }
+}
+
 // 5.    PREPROCESSING
 // 5.1   Padding the Message
 // 5.1.1 SHA-1, SHA-224 and SHA-256

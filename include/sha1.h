@@ -21,8 +21,8 @@
 // SOFTWARE.
 
 /**
- * @file sha256.h
- * @brief SHA-256 implementation header file.
+ * @file sha1.h
+ * @brief SHA-1 implementation header file.
  * 
  * This implementation directly follows the standard described in 
  * the FIPS PUB 180-4:
@@ -30,32 +30,32 @@
  * https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
  */
 
-#ifndef SHA256_H
-#define SHA256_H
+#ifndef SHA1_H
+#define SHA1_H
 
 #include <stdint.h>
 #include <stddef.h>
 
 /**
- * @brief Computes the SHA-256 hash of a string.
+ * @brief Computes the SHA-1 hash of a string.
  * 
  * @param message The string message to hash
  * @param message_length The length of the message to hash
  * @param digest_destination The resulting hash
  */
-void sha256_hash_string(const char *message, size_t message_length, uint32_t digest_destination[8]);
+void sha1_hash_string(const char *message, size_t message_length, uint32_t digest_destination[5]);
 
 /**
- * @brief The length of the digest string output by sha256_digest_to_string()
+ * @brief The length of the digest string output by sha1_digest_to_string()
  */
-#define SHA256_STRING_DIGEST_LENGTH 72
+#define SHA1_STRING_DIGEST_LENGTH 45
 
 /**
- * @brief Transforms a SHA-256 digest into a readable string.
+ * @brief Transforms a SHA-1 digest into a readable string.
  * 
- * @param digest The SHA-256 digest
+ * @param digest The SHA-1 digest
  * @param string_digest_destination The resulting string digest
  */
-void sha256_digest_to_string(uint32_t digest[8], char string_digest_destination[SHA256_STRING_DIGEST_LENGTH]);
+void sha1_digest_to_string(uint32_t digest[5], char string_digest_destination[SHA1_STRING_DIGEST_LENGTH]);
 
-#endif // SHA256_H
+#endif // SHA1_H

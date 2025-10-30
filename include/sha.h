@@ -41,9 +41,41 @@
 // 3.2   Operations on Words
 
 /**
- * @internal
+ * @brief Performs addition modulo 2^w.
+ * @note The macro 'ADD_MODULO' must be defined in the implementation 
+ * source file.
+ * 
+ * @param x The first parameter
+ * @param y The second parameter
+ */
+#define ADD(x, y) (uint32_t)(((uint32_t)(x) + (uint32_t)(y)) % ADD_MODULO)
+
+/**
+ * @brief Performs the addition of 4 integers modulo 2^w.
+ * 
+ * @param a
+ * @param b
+ * @param c
+ * @param d
+ */
+#define ADD4(a, b, c, d) (uint32_t)(ADD(ADD(ADD((a), (b)), (c)), (d)))
+
+/**
+ * @brief Performs the addition of 5 integers modulo 2^w.
+ * 
+ * @param a
+ * @param b
+ * @param c
+ * @param d
+ * @param e
+ */
+#define ADD5(a, b, c, d, e) (uint32_t)(ADD((a), ADD4((b), (c), (d), (e))))
+
+/**
  * @brief The rotate left (circular left shift) operation as defined in 
  * section 3.2 of the Secure Hash Standard.
+ * @note The macro 'WORD_SIZE_IN_BITS' must be defined in the implementation
+ * source file.
  * 
  * @param x A w-bit word
  * @param n An integer with 0 <= n < w
@@ -51,9 +83,10 @@
 #define ROTL(x, n) (((x) << (n)) | ((x) >> (WORD_SIZE_IN_BITS - (n))))
 
 /**
- * @internal
  * @brief The rotate right (circular right shift) operation as defined in 
  * section 3.2 of the Secure Hash Standard.
+ * @note The macro 'WORD_SIZE_IN_BITS' must be defined in the implementation
+ * source file.
  * 
  * @param x A w-bit word
  * @param n An integer with 0 <= n < w
@@ -61,7 +94,6 @@
 #define ROTR(x, n) (((x) >> (n)) | ((x) << (WORD_SIZE_IN_BITS - (n))))
 
 /**
- * @internal
  * @brief The right shift operation as defined in section 3.2 of the Secure
  * Hash Standard.
  * 
@@ -69,6 +101,27 @@
  * @param n An integer with 0 <= n < w
  */
 #define SHR(x, n) ((x) >> (n))
+
+// 4.    FUNCTIONS AND CONSTANTS
+// 4.1   Functions
+// 4.1.2 SHA-224 and SHA-256 Functions
+
+#define Ch(x, y, z) (((x) & (y)) ^ ((~(x)) & (z)))
+#define Parity(x, y, z) ((x) ^ (y) ^ (z))
+#define Maj(x, y, z) (((x) & (y)) ^ ((x) & (z)) ^ ((y) & (z)))
+
+#define SIGMA_0_256(x) (ROTR(x,  2) ^ ROTR(x, 13) ^ ROTR(x, 22))
+#define SIGMA_1_256(x) (ROTR(x,  6) ^ ROTR(x, 11) ^ ROTR(x, 25))
+#define sigma_0_256(x) (ROTR(x,  7) ^ ROTR(x, 18) ^ SHR(x, 3))
+#define sigma_1_256(x) (ROTR(x, 17) ^ ROTR(x, 19) ^ SHR(x, 10))
+
+/**
+ * @brief Transforms a block of 64 bytes into a bock of 16 words.
+ * 
+ * @param block_bytes The 64 bytes to transform
+ * @param block_words The 16 words destination
+ */
+void _block_bytes_to_uint32_words(uint8_t block_bytes[64], uint32_t block_words[16]);
 
 // 5.    PREPROCESSING
 // 5.1   Padding the Message

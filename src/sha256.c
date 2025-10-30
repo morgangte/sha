@@ -20,6 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+/**
+ * @internal
+ * @file sha256.c
+ * @brief SHA-256 implementation file.
+ * 
+ * This implementation directly follows the standard described in 
+ * the FIPS PUB 180-4:
+ * 
+ * https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+ */
+
 #include "sha.h"
 #include "sha256.h"
 
@@ -33,26 +44,7 @@
 #define BLOCK_SIZE_IN_BITS 512
 #define WORD_SIZE_IN_BITS 32
 #define MESSAGE_DIGEST_SIZE_IN_BITS 256
-
-// 3.    NOTATION AND CONVENTIONS
-// 3.2   Operations on Words
-
-#define ADD_MODULO 4294967296
-#define ADD(x, y) (uint32_t)(((uint32_t)(x) + (uint32_t)(y)) % ADD_MODULO)
-#define ADD4(a, b, c, d) (uint32_t)(ADD(ADD(ADD((a), (b)), (c)), (d)))
-#define ADD5(a, b, c, d, e) (uint32_t)(ADD((a), ADD4((b), (c), (d), (e))))
-
-// 4.    FUNCTIONS AND CONSTANTS
-// 4.1   Functions
-// 4.1.2 SHA-224 and SHA-256 Functions
-
-#define Ch(x, y, z) (((x) & (y)) ^ ((~(x)) & (z)))
-#define Maj(x, y, z) (((x) & (y)) ^ ((x) & (z)) ^ ((y) & (z)))
-
-#define SIGMA_0_256(x) (ROTR(x,  2) ^ ROTR(x, 13) ^ ROTR(x, 22))
-#define SIGMA_1_256(x) (ROTR(x,  6) ^ ROTR(x, 11) ^ ROTR(x, 25))
-#define sigma_0_256(x) (ROTR(x,  7) ^ ROTR(x, 18) ^ SHR(x, 3))
-#define sigma_1_256(x) (ROTR(x, 17) ^ ROTR(x, 19) ^ SHR(x, 10))
+#define ADD_MODULO 4294967296           // 2^32
 
 // 4.2   Constants
 // 4.2.2 SHA-224 and SHA-256 Constants
@@ -122,6 +114,7 @@
 #define K_62_256 0xbef9a3f7 
 #define K_63_256 0xc67178f2
 
+// 5.    PREPROCESSING
 // 5.3   Setting the Initial Hash Value
 // 5.3.3 SHA-256
 
@@ -136,16 +129,6 @@
 
 // 6.    SECURE HASH ALGORITHMS
 // 6.2   SHA-256
-
-static void _block_bytes_to_words(uint8_t block_bytes[64], uint32_t block_words[16])
-{
-    for (int i = 0; i < 16; i++) {
-        block_words[i] = ((uint32_t)block_bytes[i * 4    ] << 24) |
-                         ((uint32_t)block_bytes[i * 4 + 1] << 16) |
-                         ((uint32_t)block_bytes[i * 4 + 2] <<  8) |
-                         ((uint32_t)block_bytes[i * 4 + 3] <<  0);
-    }
-}
 
 static void _compute_hash(const char *message, size_t message_length, uint32_t digest[8])
 {
@@ -175,7 +158,7 @@ static void _compute_hash(const char *message, size_t message_length, uint32_t d
         consumed = _sha1_sha224_sha256_build_block(block_bytes, message, message_length, fit);
 
         uint32_t block_words[16] = {0};
-        _block_bytes_to_words(block_bytes, block_words);
+        _block_bytes_to_uint32_words(block_bytes, block_words);
 
         uint32_t W[64] = {0};
         memcpy(W, block_words, 16 * sizeof(uint32_t));

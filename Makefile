@@ -11,7 +11,7 @@ CFLAGS=-Wall -Wextra
 
 # *************************** Files **************************
 
-FILES=sha256
+FILES=sha1 sha256
 
 SOURCE_OBJECTS=$(patsubst %, $(OUT_DIR)/$(OBJ_DIR)/%.o, $(FILES))
 TEST_HEADERS=$(patsubst %, $(TST_DIR)/test_%.h, $(FILES))
@@ -38,6 +38,7 @@ $(OUT_DIR)/$(OBJ_DIR)/main.o: $(TST_DIR)/main.c $(TST_DIR)/minunit.h $(TEST_HEAD
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 $(OUT_DIR)/$(OBJ_DIR)/sha.o: $(SRC_DIR)/sha.c $(INC_DIR)/sha.h 
+$(OUT_DIR)/$(OBJ_DIR)/sha1.o: $(SRC_DIR)/sha1.c $(INC_DIR)/sha1.h $(INC_DIR)/sha.h 
 $(OUT_DIR)/$(OBJ_DIR)/sha256.o: $(SRC_DIR)/sha256.c $(INC_DIR)/sha256.h $(INC_DIR)/sha.h 
 
 $(OUT_DIR)/$(OBJ_DIR)/%.o:
