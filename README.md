@@ -33,7 +33,7 @@ $ apt install doxygen
 
 ### Documentation
 
-Documentation is available online at https://morgangte.github.io/sha-256/.
+Documentation is available online at https://morgangte.github.io/sha/.
 
 #### Locally
 
@@ -53,7 +53,7 @@ $ firefox docs/html/index.html
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-Source code is available at https://github.com/morgangte/sha-256.
+Source code is available at https://github.com/morgangte/sha.
 
 ### Author
 
